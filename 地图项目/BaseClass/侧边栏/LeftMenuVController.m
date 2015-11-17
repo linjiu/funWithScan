@@ -54,7 +54,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger row = 5;
+    NSInteger row = 6;
     CGRect frame  = tableView.frame;
     frame.size.height = cellHeight * row;
     tableView.frame = frame;
@@ -84,8 +84,10 @@
         cell.textLabel.text = @"娱乐短片";
     }else if(indexPath.row == 3){
         cell.textLabel.text = @"热映电影";
+    }else if(indexPath.row == 4){
+        cell.textLabel.text = @"电台直播";
     }else {
-        cell.textLabel.text = @"直播听书";
+        cell.textLabel.text = @"清理缓存";
     }
     cell.backgroundColor = [UIColor clearColor];
     return  cell;
@@ -115,10 +117,31 @@
         [[SlideViewController shareInstance] GotoViewController:vc];
 
     }
-    else
+    else if ( indexPath.row == 4)
     {
         LiveViewController *vc = [[LiveViewController alloc]init];
         [[SlideViewController shareInstance] GotoViewController:vc];
+    }else{
+        
+        [[SlideViewController shareInstance] SwitchMenuState];
+        
+        float cache = [[SDImageCache sharedImageCache] getSize] / 1024.0 / 1024.0;
+        NSString *clearCacheName = cache >= 1 ? [NSString stringWithFormat:@"清理缓存(%.2fM)",cache] : [NSString stringWithFormat:@"清理缓存(%.2fK)",cache * 1024];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:clearCacheName preferredStyle:(UIAlertControllerStyleAlert)];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cleanAction = [UIAlertAction actionWithTitle:@"清理" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[SDImageCache sharedImageCache] clearDisk];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"缓存清理完成" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alertView show];
+        }];
+        [alertC addAction:cancelAction];
+        [alertC addAction:cleanAction];
+        
+        UIWindow *window = [[UIApplication sharedApplication].delegate window];
+        [window.rootViewController presentViewController:alertC animated:YES completion:nil];
+        
+    //        [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(clean) userInfo:nil repeats:NO];
     }
     
 }
