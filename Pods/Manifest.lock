@@ -1,0 +1,19 @@
+PODS:
+  - QRCodeReaderViewController (3.5.2)
+
+DEPENDENCIES:
+  - QRCodeReaderViewController (from `https://github.com/zhengjinghua/MQRCodeReaderViewController.git`)
+
+EXTERNAL SOURCES:
+  QRCodeReaderViewController:
+    :git: https://github.com/zhengjinghua/MQRCodeReaderViewController.git
+
+CHECKOUT OPTIONS:
+  QRCodeReaderViewController:
+    :commit: 0b6af2738ea2cc393060704554b9ac2ec7f0bd53
+    :git: https://github.com/zhengjinghua/MQRCodeReaderViewController.git
+
+SPEC CHECKSUMS:
+  QRCodeReaderViewController: 557e3291d8fe8adf20d62b7f6bd79a3941f8ec31
+
+COCOAPODS: 0.39.0
