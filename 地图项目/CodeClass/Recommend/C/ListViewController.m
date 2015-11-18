@@ -150,8 +150,6 @@
 }
 
 
-
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.arr.count;
@@ -180,14 +178,14 @@
     
     if (cell.isPlay == NO) {
         
-        [self setLoading];
-        
         for (int i = 0; i < self.arr.count; i++) {
             ListCell *cell = [self.tableV cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.isPlay = NO;
             [cell.button setImage:[UIImage imageNamed:@"player_play"] forState:(UIControlStateNormal)];
         }
-        
+
+        [self.pendulum removeFromSuperview];
+        [self setLoading];
         [cell.button setImage:[UIImage imageNamed:@"player_pause"] forState:(UIControlStateNormal)];
         self.player = [[AVPlayer alloc]init];
         self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:cell.url]];
@@ -215,7 +213,7 @@
 -(void)myTabVClick:(ListCell *)cell
 {
     if (cell.isPlay == NO) {
-        
+        [self.pendulum removeFromSuperview];
         [self setLoading];
         
         for (int i = 0; i < self.arr.count; i++) {
@@ -238,6 +236,7 @@
         
         
     }else{
+        [self.pendulum removeFromSuperview];
         [cell.button setImage:[UIImage imageNamed:@"player_play"] forState:(UIControlStateNormal)];
         cell.isPlay = NO;
         [self.player pause];

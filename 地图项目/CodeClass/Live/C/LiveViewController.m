@@ -9,7 +9,7 @@
 #import "LiveViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
-
+#import "SlideViewController.h"
 #import "DKCircleButton.h"
 @interface LiveViewController ()
 {
@@ -28,6 +28,11 @@
 
 @implementation LiveViewController
 
+-(void)leftBtnClick:(UIButton *)button
+{
+    [self.player pause];
+    [[SlideViewController shareInstance]SwitchMenuState];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

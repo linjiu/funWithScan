@@ -1456,7 +1456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: yifan gao (6EKP826QMZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yifan gao (DRKQL6F37P)";
 				GCC_PREFIX_HEADER = "地图项目/Helper/Header.h";
 				INFOPLIST_FILE = "地图项目/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1468,7 +1468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = erweima01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "27ea4872-a89a-4e31-93cf-17707d7c02a9";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1478,7 +1478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: yifan gao (6EKP826QMZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yifan gao (DRKQL6F37P)";
 				GCC_PREFIX_HEADER = "地图项目/Helper/Header.h";
 				INFOPLIST_FILE = "地图项目/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1490,7 +1490,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = erweima01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "27ea4872-a89a-4e31-93cf-17707d7c02a9";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -70,9 +70,7 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"模糊背景"]];
     
-
    
-
 }
 
 

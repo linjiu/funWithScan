@@ -69,7 +69,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (!operation.responseObject) {
-            NSLog(@"网络错误");
+            //NSLog(@"网络错误");
         }
         Error( operation,error);
     }];

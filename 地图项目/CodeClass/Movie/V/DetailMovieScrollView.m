@@ -119,6 +119,7 @@
     self.castsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.movieSummary.frame.origin.y + self.movieSummary.frame.size.height + 20 * kFitHeight, kWidth, 160 * kFitHeight)];
     self.castsScrollView.contentSize = CGSizeMake(90 * kFitWidth * (model.casts.count + 1) + 10 * kFitWidth, 150 * kFitHeight);
     self.castsScrollView.showsHorizontalScrollIndicator = NO;
+    self.castsScrollView.bounces = NO;
     [self addSubview:self.castsScrollView];
     
     // 导演的图片标题

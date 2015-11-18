@@ -72,7 +72,6 @@ static NSTimeInterval kQrLineanimateDuration = 0.02;
         
         if ([weakSelf.delegate respondsToSelector:@selector(scanTypeConfig:)] ) {
             
-            
             [weakSelf.delegate scanTypeConfig:item];
         }
     };

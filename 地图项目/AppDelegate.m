@@ -18,6 +18,7 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) UIScrollView *scrollV;
 @property (nonatomic, strong) UIImageView *image;
 
 @end
@@ -28,7 +29,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"模糊背景"]];
+
     [self.window makeKeyAndVisible];
 
     /**
@@ -44,19 +46,25 @@
     /**
      开场动画
      */
+    self.scrollV = [[UIScrollView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.image = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.image.image = [UIImage imageNamed:@"1355812920158.jpg"];
-    [self.window addSubview:self.image];
+//    [self.window addSubview:self.image];
     self.image.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImage)];
     [tap setNumberOfTouchesRequired:1];
     [self.image addGestureRecognizer:tap];
+    self.scrollV.contentSize = CGSizeMake(kWidth, kHeight);
+    [self.scrollV addSubview:self.image];
+    [self.window addSubview:self.scrollV];
+
     [UIView animateWithDuration:3.7f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        _image.alpha = 0;
+        _scrollV.alpha = 0;
+        _scrollV.zoomScale = 0.5;
         
     } completion:^(BOOL finished) {
         //结束动画移除
-        [_image removeFromSuperview];
+        [_scrollV removeFromSuperview];
     
     }];
     
@@ -64,7 +72,7 @@
 }
 
 - (void)touchImage{
-    [_image removeFromSuperview];
+    [_scrollV removeFromSuperview];
 }
 
 #pragma mark - 支持横竖屏切换的方法

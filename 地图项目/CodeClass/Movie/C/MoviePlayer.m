@@ -249,8 +249,6 @@
 
 #pragma mark 创建视频播放视图
 - (void)createMoviePlayer:(NSURL *)url{
-//    NSURL *boundURL = [[NSBundle mainBundle] URLForAuxiliaryExecutable:@"14362617410222.mp4"];
-//    self.moviePlay = [[MPMoviePlayerController alloc] initWithContentURL:boundURL];
     
     //创建视频播放视图
     self.moviePlay = [[MPMoviePlayerController alloc] initWithContentURL:url];

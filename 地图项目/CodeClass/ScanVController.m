@@ -10,6 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "QRView.h"
 #import "QRUtil.h"
+#import "MainViewController.h"
+#import "SlideViewController.h"
 @interface ScanVController ()<AVCaptureMetadataOutputObjectsDelegate,QRViewDelegate>
 
 @property (strong, nonatomic) AVCaptureDevice * device;
@@ -183,11 +185,13 @@
         UIAlertAction *freshAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"转到链接" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSURL *url = [NSURL URLWithString:stringValue];
-            [[ UIApplication sharedApplication]openURL:url];
+            //回到主界面方法
+//            MainViewController * vc = [[MainViewController alloc]init];
+//            [[SlideViewController shareInstance] GotoViewController:vc];
+            [[UIApplication sharedApplication] openURL:url];
         }];
         [alertC addAction:cancelAction];
         [alertC addAction:freshAction];
-        //回到主界面方法
         [self presentViewController:alertC animated:YES completion:nil];
     }else{
         UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"条形码结果" message:stringValue preferredStyle:(UIAlertControllerStyleAlert)];
@@ -195,7 +199,7 @@
         [alertC addAction:freshAction];
         [self presentViewController:alertC animated:YES completion:nil];
     }
-    
+
     
 }
 
